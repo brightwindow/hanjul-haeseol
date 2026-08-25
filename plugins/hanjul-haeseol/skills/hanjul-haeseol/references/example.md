@@ -1,7 +1,10 @@
-# 실제 결과 예시
+# 결과 본보기
 
-부산대 반도체공학 Ch.6 슬라이드에 돌린 결과에서 **세 종류의 쪽**을 뽑았다.
+**세 종류의 쪽**을 골라 실제 출력 그대로 실었다.
 새 과목을 시작할 때 이 문서를 먼저 읽고 **밀도와 어조를 맞춘다.**
+
+여기 실린 슬라이드는 이 문서를 위해 지어낸 것이다. 회로 이론의 RC 과도응답을 소재로 삼았다.
+어느 강의의 실제 자료도 아니며, **기법을 보여 주려고 만든 본보기**다.
 
 ---
 
@@ -11,29 +14,34 @@
 
 ```html
 <div class="row">
-  <div class="orig">Carrier concentration in thermal equilibrium: the concentration of electrons (n₀) and holes (p₀) are <u>independent of time</u></div>
-  <div class="exp">열평형에서 전자 농도 n<sub>0</sub>와 정공 농도 p<sub>0</sub>는 <b>시간과 무관하다</b>. 1초 뒤에 재도, 한 시간 뒤에 재도 같은 값이 나온다는 뜻이다. 아래 첨자 0이 붙으면 "평형값"이라는 약속이다.</div>
+  <div class="orig"><b>Transient response:</b> the behavior of a circuit <u>before</u> it settles to its final value</div>
+  <div class="exp"><b>과도응답</b>은 회로가 <b>최종값에 자리 잡기 전까지</b> 보이는 거동이다.<br>스위치를 딱 켠 순간을 떠올리면 된다. 전등이 곧바로 최대 밝기가 되는 것 같지만, 아주 짧은 동안은 밝기가 올라가는 중이다. 그 "올라가는 중"이 과도응답이다.<br>반대말은 <b>정상상태(steady state)</b>이고, 다 자리 잡은 뒤의 상태를 말한다.</div>
 </div>
 
 <div class="row">
-  <div class="orig">Generation and recombination <u>are still happening</u> in thermal equilibrium</div>
-  <div class="exp">여기가 헷갈리기 쉬운 곳이다. 농도가 안 변한다고 해서 <b>아무 일도 안 일어나는 것이 아니다</b>. 생성과 재결합은 계속 일어나고 있고 단지 속도가 같을 뿐이다.<br>수도꼭지와 배수구가 똑같은 속도로 열려 있는 욕조와 같다. 수위는 그대로지만 물은 계속 흐른다.</div>
+  <div class="orig">For a series RC circuit with no source: v<sub>C</sub>(0) = V₀</div>
+  <div class="exp">조건을 읽는 법이다. <b>RC 직렬 회로</b>는 저항 R 과 축전기 C 를 한 줄로 이은 것이다.<br><b>축전기(capacitor)</b> = 전하를 담아 두는 그릇. 물탱크라고 보면 된다. C 가 클수록 많이 담긴다.<br><b>no source(전원 없음)</b> → 새로 채워 주는 것이 없다는 뜻이다. 담겨 있던 것이 빠지기만 한다.<br><b>v<sub>C</sub>(0) = V₀</b> → t = 0 일 때 이미 V₀ 만큼 차 있었다는 출발 조건이다.</div>
 </div>
 
 <div class="row">
-  <div class="orig">G<sub>n0</sub> = G<sub>p0</sub>,  R<sub>n0</sub> = R<sub>p0</sub>  (#/cm³·s)</div>
-  <div class="exp">단위부터 보면 뜻이 분명해진다. <b>#/cm³·s</b> = <b>1 cm³ 안에서 1초에 몇 개</b>. 그래서 이 값들은 "속도"다.<br>전자와 정공은 항상 <b>쌍으로</b> 생기고 <b>쌍으로</b> 사라지므로 전자 쪽 수치와 정공 쪽 수치가 같다.</div>
+  <div class="orig">KVL:  R·i(t) + v<sub>C</sub>(t) = 0,   i(t) = C·dv<sub>C</sub>/dt</div>
+  <div class="exp">두 식을 세운 것이다.<br><b>KVL(키르히호프 전압 법칙)</b> = 한 바퀴 돌아 제자리로 오면 전압의 합이 0 이라는 법칙. 언덕을 한 바퀴 돌아 출발점에 오면 높이 변화가 0 인 것과 같다.<br>둘째 식은 축전기의 성질이다. <span class="eq">dv/dt</span> 는 <b>전압이 얼마나 빨리 변하는가</b>이고, 전류는 거기에 비례한다. 물탱크의 수위가 빨리 변할수록 관을 지나는 물이 많다는 뜻이다.</div>
 </div>
 
-<div class="fig"><b>오른쪽 그림 (Direct band-to-band generation and recombination)</b> — 왼쪽 화살표는 아래(E<sub>v</sub>)에서 위(E<sub>c</sub>)로 올라가는 <b>생성</b>, 오른쪽 화살표는 위에서 아래로 떨어지는 <b>재결합</b>이다. 가운데 필기 <span class="hand">G = R</span>이 이 그림의 결론이다.</div>
+<div class="row">
+  <div class="orig">RC·dv<sub>C</sub>/dt + v<sub>C</sub> = 0   →   v<sub>C</sub>(t) = V₀·e<sup>−t/RC</sup></div>
+  <div class="exp">두 식을 합치면 왼쪽이 되고, 그 답이 오른쪽이다.<br>왼쪽 식은 "<b>줄어드는 속도가 지금 남은 양에 비례한다</b>"는 말이다. 이런 꼴은 언제나 <b>지수함수로 줄어드는 답</b>을 갖는다. 많이 남았을 때는 빨리 줄고 적게 남았을 때는 천천히 준다.<br><span class="eq">e<sup>−t/RC</sup></span> 는 <b>RC 시간이 지날 때마다 약 37 %(= 1/e)로 줄어드는 감쇠</b>를 뜻한다.</div>
+</div>
+
+<div class="fig"><b>오른쪽 그래프</b> — 세로축이 v<sub>C</sub>, 가로축이 시간이다. V₀ 에서 시작해 스르르 내려가 0 에 붙는다. 점선으로 그은 눈금이 t = RC, 2RC, 3RC 자리인데, 한 칸 지날 때마다 남은 값이 37 % 로 줄어든다. 3 칸이면 5 % 아래로 떨어져서 실무에서는 "거의 다 빠졌다"고 본다.</div>
 ```
 
 **여기서 볼 것**
 
-- 단위(`#/cm³·s`)를 먼저 읽어 주면 그 값이 무엇인지가 저절로 드러난다.
-- "헷갈리기 쉬운 곳이다" 처럼 **어디서 막히는지 짚어 준다.**
-- 비유(욕조)를 쓰고 **바로 정확한 서술로 돌아온다.**
-- 그림은 화살표 방향까지 읽어 준다. 그림을 못 보는 상태로 읽는 사람이 있다.
+- 조건 줄(`no source`, `v(0) = V₀`)을 **하나씩 뜻으로 번역한다.** 뒤에서 식을 지우는 근거가 되기 때문이다.
+- 물탱크 비유를 쓰고 **바로 정확한 서술로 돌아온다.**
+- 그래프는 축이 무엇인지, 눈금이 무슨 뜻인지까지 읽어 준다. 그림을 못 보는 상태로 읽는 사람이 있다.
+- 법칙 이름(KVL)은 **풀어 쓴 뒤 뜻까지** 준다.
 
 ---
 
@@ -43,32 +51,43 @@
 손으로 전개한 계산은 **한 줄씩 끊어서** 따라간다.
 
 ```html
-<p class="fig">이 쪽은 인쇄된 글자가 하나도 없고 전부 교수님 손글씨다. <b>6장 전체를 한 장으로 그린 지도</b>라서 시험 직전에 이 쪽만 봐도 흐름이 잡힌다.</p>
+<p class="fig">이 쪽은 인쇄된 글자가 하나도 없고 전부 교수님 손글씨다. <b>과도응답을 한 장으로 정리한 지도</b>라서 시험 직전에 이 쪽만 봐도 흐름이 잡힌다.</p>
 
 <div class="row">
-  <div class="orig"><span class="hand">[필기] dn(t)/dt = d/dt (n₀ + δn(t)) = d(δn)/dt = g' − R</span></div>
-  <div class="exp"><span class="eq">d/dt</span>는 <b>시간에 따라 얼마나 빨리 변하는가</b>, 즉 변화 속도를 뜻한다. 그래프의 기울기다.<br>n<sub>0</sub>는 상수라서 미분하면 0이 된다. 그래서 <b>전체 전자의 변화 속도 = 초과분 δn의 변화 속도</b>가 된다.<br>오른쪽 <span class="eq">g' − R</span>은 "새로 생기는 속도 빼기 없어지는 속도"다. 수도꼭지로 물이 들어오고 배수구로 빠지는 욕조를 떠올리면 된다.</div>
+  <div class="orig"><span class="hand">[필기] RC dv/dt = −v</span></div>
+  <div class="exp"><span class="eq">dv/dt</span> 는 <b>전압이 얼마나 빨리 변하는가</b>, 즉 변화 속도다. 그래프의 기울기다.<br>오른쪽에 마이너스가 붙은 것이 핵심이다. <b>지금 값이 클수록 빨리 줄어든다</b>는 뜻이다.</div>
 </div>
 
 <div class="row">
-  <div class="orig"><span class="hand">[필기] = α{nᵢ² − (n₀+δn)(p₀+δp)}</span></div>
-  <div class="exp">n과 p 자리에 각각 n<sub>0</sub>+δn, p<sub>0</sub>+δp를 넣었다. 이제 괄호를 전개하면 된다.</div>
+  <div class="orig"><span class="hand">[필기] dv/v = −dt/RC</span></div>
+  <div class="exp"><b>변수분리</b>다. v 가 들어간 것은 왼쪽으로, t 가 들어간 것은 오른쪽으로 몰았다.<br>이렇게 갈라 놓으면 양변을 따로 적분할 수 있다. 미분방정식을 푸는 가장 기본적인 수법이다.</div>
 </div>
 
 <div class="row">
-  <div class="orig"><span class="hand">[필기] = −α δn · p₀</span></div>
-  <div class="exp">여기서 저준위 주입 조건이 일한다.<br>① p형이므로 <span class="eq">p<sub>0</sub> ≫ n<sub>0</sub></span> → 괄호 안 n<sub>0</sub>는 무시.<br>② <span class="eq">p<sub>0</sub> ≫ δn</span> → (δn)²은 더 작으니 무시.<br>큰 것만 남기고 작은 것을 버리는 <b>근사</b>이며, 이 과목에서 계속 쓰는 기술이다.</div>
+  <div class="orig"><span class="hand">[필기] ln v = −t/RC + K</span></div>
+  <div class="exp">양변을 적분한 결과다. <span class="eq">∫dv/v = ln v</span> 는 외워 두는 공식이다.<br><b>K 는 적분상수</b>다. 적분하면 항상 정체 모를 상수가 하나 붙는데, <b>출발 조건을 넣어서</b> 정한다.</div>
 </div>
 
-<div class="key"><b>이 쪽 한 줄 요약</b> — 빛을 끄면 초과 캐리어는 <span class="eq">δn(t) = δn(0)·e<sup>−t/τ</sup></span> 로 사라진다. τ는 <b>수명</b>이고 <span class="eq">τ = 1/(α p<sub>0</sub>)</span>, 즉 <b>다수 캐리어가 많을수록 초과분이 빨리 죽는다</b>.</div>
+<div class="row">
+  <div class="orig"><span class="hand">[필기] v = e^K · e^(−t/RC) = A e^(−t/RC)</span></div>
+  <div class="exp">양변에 지수를 씌워 ln 을 벗겼다. <span class="eq">e<sup>K</sup></span> 는 그냥 어떤 상수이므로 <b>A 라고 이름만 바꿔 둔다.</b><br>모르는 상수를 끝까지 끌고 가지 않고 간단한 이름으로 묶는 것이 계산을 짧게 만든다.</div>
+</div>
+
+<div class="row">
+  <div class="orig"><span class="hand">[필기] t = 0 → v = V₀ ∴ A = V₀</span></div>
+  <div class="exp">출발 조건을 넣어 A 를 정하는 자리다.<br>t = 0 을 넣으면 <span class="eq">e<sup>0</sup> = 1</span> 이므로 v = A 가 된다. 그런데 문제에서 t = 0 일 때 V₀ 라고 했으니 <b>A = V₀</b> 다.<br><b>∴ 는 "그러므로"</b>라는 기호다.</div>
+</div>
+
+<div class="key"><b>이 쪽 한 줄 요약</b> — 전원 없는 RC 회로의 전압은 <span class="eq">v(t) = V₀·e<sup>−t/RC</sup></span> 로 사라진다. <b>RC 를 시정수 τ</b> 라 부르고, <b>R 이나 C 가 클수록 천천히 빠진다</b>. 물탱크가 크거나(C) 배수관이 좁으면(R) 오래 걸리는 것과 같다.</div>
 ```
 
 **여기서 볼 것**
 
 - 쪽 첫머리에 `<p class="fig">` 로 **이 쪽이 어떤 성격인지** 먼저 알려 준다.
-- 손 계산은 **줄마다 따로** 잡는다. 한 덩어리로 묶으면 어디서 뭘 버렸는지 안 보인다.
-- **근사를 쓸 때 무엇을 왜 버렸는지** 번호를 매겨 밝힌다. 이 과목들에서 가장 자주 나오는 기술이다.
-- 쪽 끝에 `key` 상자로 한 줄 요약을 남긴다.
+- 손 계산은 **줄마다 따로** 잡는다. 한 덩어리로 묶으면 어느 단계에서 무슨 수법을 썼는지 안 보인다.
+- 각 줄마다 **왜 그렇게 하는지**를 붙인다. "변수분리다"로 끝내지 않고 "이렇게 갈라 놓으면 따로 적분할 수 있다"까지 쓴다.
+- `∴` 같은 기호도 그냥 넘기지 않는다.
+- 쪽 끝에 `key` 상자로 한 줄 요약과 물리적 의미를 남긴다.
 
 ---
 
@@ -78,21 +97,27 @@
 
 ```html
 <div class="row">
-  <div class="orig"><span class="hand">[필기] R'<sub>n</sub> (동그라미)</span> = −d(δn(t))/dt = +α<sub>r</sub>p₀δn(t) <span class="hand">= δn(t)/τ<sub>n0</sub> (동그라미)</span></div>
-  <div class="exp">재결합률은 <b>양수로 정의</b>한다. 그래서 앞에 마이너스를 붙여 부호를 뒤집었다.<br>동그라미 친 <span class="eq">R' = δn/τ</span>가 <b>이 쪽에서 가장 중요한 결과</b>다. <b>초과분을 수명으로 나누면 재결합 속도가 된다</b>는 뜻이고, 뒤의 모든 방정식에서 이 형태로 등장한다.</div>
+  <div class="orig"><span class="hand">τ (동그라미)</span> = RC : <u>time constant</u>   <span class="hand">[필기] 단위 확인!</span></div>
+  <div class="exp">동그라미 친 <b>시정수 τ</b> 가 이 쪽의 주인공이다.<br>필기대로 <b>단위를 확인</b>해 보면 왜 시간인지가 드러난다. 저항의 단위 Ω 와 정전용량의 단위 F 를 곱하면 초(s) 가 된다. 그래서 τ 를 <b>시간</b>으로 읽어도 되는 것이다.<br>단위를 맞춰 보는 습관은 식을 잘못 옮겨 적었을 때 바로 잡아 준다.</div>
+</div>
+
+<div class="row">
+  <div class="orig">t = τ → v = 0.368·V₀    <span class="hand">[필기] 63 % 빠짐 (동그라미)</span></div>
+  <div class="exp"><span class="eq">e<sup>−1</sup> = 0.368</span> 이므로 τ 만큼 지나면 <b>36.8 % 가 남는다</b>.<br>바꿔 말해 <b>63.2 % 가 빠진 것</b>이고, 교수님이 그렇게 적어 두셨다. 시험에서는 "남은 비율"과 "빠진 비율" 중 어느 쪽을 묻는지 잘 봐야 한다.<br>실무에서 <b>5τ 면 다 끝난 것으로 본다.</b> 그때 남은 값이 0.7 % 이기 때문이다.</div>
 </div>
 
 <div class="exam"><b>★ 시험 포인트</b> — 이 쪽에 붉은 표시가 가장 많다. 반드시 챙길 세 가지다.<br>
-① <span class="eq">δn(t) = δn(0)e<sup>−t/τ</sup></span> — 초과 캐리어는 지수함수로 죽는다<br>
-② <span class="eq">τ<sub>n0</sub> = (α<sub>r</sub>p<sub>0</sub>)<sup>−1</sup></span> — 수명의 정의<br>
-③ <span class="eq">R' = δn/τ</span> — 재결합률. 뒤의 모든 식에 이 꼴로 들어간다</div>
+① <span class="eq">τ = RC</span> — 시정수의 정의. 단위가 초가 되는지 확인할 것<br>
+② <span class="eq">v(τ) = 0.368 V₀</span> — 한 시정수에 <b>63 % 가 빠진다.</b> 남는 비율과 헷갈리지 말 것<br>
+③ <span class="eq">5τ</span> — 실무에서 과도응답이 끝났다고 보는 기준</div>
 ```
 
 **여기서 볼 것**
 
 - 손글씨 표시를 `(동그라미)` 처럼 **어떤 표시였는지까지** 적는다.
+- `단위 확인!` 같은 짧은 필기도 버리지 않는다. **왜 그렇게 적으셨는지**를 해설에서 풀어 준다.
 - 시험 포인트에는 **왜 그 표시가 중요한지**를 쓴다. "중요하다"만 쓰면 아무 도움이 안 된다.
-- 항목이 여럿이면 번호를 매기고 **각 항목이 어디에 쓰이는지** 덧붙인다.
+- 헷갈리기 쉬운 곳(남은 비율 vs 빠진 비율)을 **미리 짚어 준다.**
 
 ---
 
