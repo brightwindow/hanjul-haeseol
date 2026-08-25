@@ -1,0 +1,19 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "hanjul-haeseol",
+  "description": "강의 슬라이드 PDF 를 한 줄 한 줄 고졸 수준 해설 HTML 로 바꾸는 스킬",
+  "owner": {
+    "name": "brightwindow"
+  },
+  "plugins": [
+    {
+      "name": "hanjul-haeseol",
+      "description": "대학 강의 슬라이드 PDF 를 원문과 해설이 나란히 놓인 HTML 로 바꾼다. 손글씨 필기를 따로 표시하고 붉은 강조를 시험 포인트로 뽑아낸다. 고등학교 수학까지만 알아도 읽히도록 용어를 매번 풀어 쓴다.",
+      "author": {
+        "name": "brightwindow"
+      },
+      "category": "productivity",
+      "source": "./plugins/hanjul-haeseol"
+    }
+  ]
+}

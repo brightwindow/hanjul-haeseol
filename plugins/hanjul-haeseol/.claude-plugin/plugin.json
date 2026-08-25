@@ -1,0 +1,17 @@
+{
+  "name": "hanjul-haeseol",
+  "description": "대학 강의 슬라이드 PDF 를 원문과 해설이 나란히 놓인 HTML 로 바꾼다. 손글씨 필기를 따로 표시하고 붉은 강조를 시험 포인트로 뽑아낸다. 고등학교 수학까지만 알아도 읽히도록 용어를 매번 풀어 쓴다.",
+  "version": "1.0.0",
+  "author": {
+    "name": "brightwindow"
+  },
+  "keywords": [
+    "korean",
+    "lecture",
+    "pdf",
+    "study-notes",
+    "handwriting",
+    "exam-prep",
+    "html"
+  ]
+}
